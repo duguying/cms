@@ -3,13 +3,12 @@ package net.duguying.cms.controller;
 import com.jfinal.core.Controller;
 
 /**
- * 首页
+ * 文章
  * @author rex
  *
  */
-public class IndexController extends Controller {
+public class PostController extends Controller{
 	public void index() {
-		renderText("This is index page, shit.");
+		renderText("This");
 	}
-
 }
