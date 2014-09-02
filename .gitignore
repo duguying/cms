@@ -1,0 +1,9 @@
+# myeclipse
+/.myeclipse/
+/.settings/
+/target/
+/.mymetadata
+/.classpath
+
+# bin
+*.jar
