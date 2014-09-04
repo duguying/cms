@@ -11,5 +11,8 @@ public class IndexController extends Controller {
 	public void index() {
 		renderText("This is index page, shit.");
 	}
-
+	
+	public void test(){
+		render("test.html");
+	}
 }
