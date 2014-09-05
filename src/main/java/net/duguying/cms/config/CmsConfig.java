@@ -4,6 +4,7 @@ import net.duguying.cms.controller.IndexController;
 import net.duguying.cms.controller.PasswordController;
 import net.duguying.cms.controller.PostController;
 import net.duguying.cms.controller.UserController;
+import net.duguying.cms.model.Post;
 import net.duguying.cms.model.User;
 
 import com.jfinal.config.*;
@@ -31,6 +32,7 @@ public class CmsConfig extends JFinalConfig {
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(cp);
 		me.add(arp);
 		arp.addMapping("user", User.class);
+		arp.addMapping("post", Post.class);
 	}
 
 	public void configInterceptor(Interceptors me) {

@@ -10,6 +10,9 @@ import com.jfinal.ext.interceptor.POST;
 
 public class UserController extends Controller {
 	
+	/**
+	 * 登录
+	 */
 	@Before(POST.class)
 	public void login() {
 		String username = getPara("username");
@@ -46,10 +49,20 @@ public class UserController extends Controller {
 
 	}
 
+	/**
+	 * 登出
+	 */
 	public void logout() {
-
+		removeSessionAttr("username");
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		result.put("result", true);
+		result.put("msg", "logout success");
+		renderJson(result);
 	}
 
+	/**
+	 * 注册
+	 */
 	@Before(POST.class)
 	public void registor() {
 		String username = getPara("username");

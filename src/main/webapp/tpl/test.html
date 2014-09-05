@@ -6,20 +6,45 @@
 </head>
 <body>
 	<div>
-		<h1>This is a test page.</h1>
-		<h3>登录</h3>
+		<h1>This is a test page. user: ${username}</h1>
+		<h3>登录<span style="color:rgb(0, 255, 0)">√</span></h3>
 		<form action="/cms/user/login" method="post">
 			<label for="">用户名</label><input type="text" name="username" id="">
 			<label for="">密码</label><input type="password" name="password" id="">
 			<input type="submit" value="登录">
 		</form>
 		<hr>
-		<h3>注册</h3>
+		<h3>注册<span style="color:rgb(0, 255, 0)">√</span></h3>
 		<form action="/cms/user/registor" method="post">
 			<label for="">用户名</label><input type="text" name="username" id=""><br>
 			<label for="">密码</label><input type="password" name="password" id=""><br>
 			<input type="submit" value="注册">
 		</form>
+		<hr>
+		<h3>添加文章<span style="color:rgb(0, 255, 0)">√</span></h3>
+		<form action="/cms/post/add" method="post">
+			<label for="">标题</label><input type="text" name="title" id=""><br>
+			<label for="">内容</label><br>
+			<textarea name="content" id="" cols="30" rows="10"></textarea><br>
+			<input type="submit" value="添加">
+		</form>
+		<hr>
+		<h3>删除文章<span style="color:#777">?</span></h3>
+		<form action="/cms/post/delete" method="get">
+			<label for="">文章ID</label><input type="text" name="id" id="">
+			<input type="submit" value="删除">
+		</form>
+		<hr>
+		<h3>修改文章<span style="color:#777">?</span></h3>
+		<form action="/cms/post/update" method="post">
+			<label for="">标题</label><input type="text" name="title" id=""><br>
+			<label for="">内容</label><br>
+			<textarea name="content" id="" cols="30" rows="10"></textarea><br>
+			<input type="submit" value="添加">
+		</form>
+		<hr>
+		<h3>获取文章<span style="color:rgb(0, 255, 0)">√</span></h3>
+		<a href="/cms/post/article/1">ID为1的文章</a>
 	</div>
 </body>
 </html>

@@ -13,6 +13,13 @@ public class IndexController extends Controller {
 	}
 	
 	public void test(){
+		String username = getSessionAttr("username");
+		
+		if(username == null){
+			username = "null";
+		}
+		
+		setAttr("username", username);
 		render("test.html");
 	}
 }
