@@ -6,13 +6,25 @@ import net.duguying.web.Utils;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 
-/**
- * 首页
- * @author rex
- *
- */
-public class IndexController extends Controller {
+public class AdminController extends Controller {
 	public void index() {
+		// 登录口
+		String loginTag = "";
+		String username = getSessionAttr("username");
+		if(username == null){
+			loginTag = Utils.loginTagA;
+		}else{
+			loginTag = Utils.loginTagB + username + Utils.loginTagC + Utils.loginTagD;
+		}
+		setAttr("logintag", loginTag);
+				
+		render("index.html");
+	}
+	
+	/**
+	 * 文章管理列表
+	 */
+	public void list(){
 		int page = 1;
 		try{
 			page = getParaToInt("page");
@@ -24,8 +36,8 @@ public class IndexController extends Controller {
 		int numPerPage = 10;
 		int totalPage = Post.totalPage(numPerPage);
 		String nav = "";
-		String prev = "<a class='btn btn-default navbar-btn' href='?page="+(page-1)+"'>上一页</a>";
-		String next = "<a class='btn btn-default navbar-btn' href='?page="+(page+1)+"'>下一页</a>"; 
+		String prev = "<a href='?page="+(page-1)+"'>上一页</a>";
+		String next = "<a href='?page="+(page+1)+"'>下一页</a>"; 
 		if(page == 1){
 			if(page == totalPage){
 				nav = "";
@@ -53,18 +65,7 @@ public class IndexController extends Controller {
 			loginTag = Utils.loginTagB + username + Utils.loginTagC + Utils.loginTagD;
 		}
 		setAttr("logintag", loginTag);
-		
-		render("index.html");
-	}
-	
-	public void test(){
-		String username = getSessionAttr("username");
-		
-		if(username == null){
-			username = "null";
-		}
-		
-		setAttr("username", username);
-		render("test.html");
+				
+		render("list.html");
 	}
 }

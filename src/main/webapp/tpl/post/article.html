@@ -3,12 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<title>${article.title}</title>
+	<link rel="stylesheet" href="/cms/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/cms/static/css/bootstrap-theme.min.css">
+	<script src="/cms/static/js/jquery-1.11.1.min.js"></script>
+	<script src="/cms/static/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div>
+	<#include "../_inc_/header.html"/>
+	<div class="container">
 		<h3>${article.title}</h3>
-		<div>time: <span>${article.post_time}</span>author: <span>${article.author}</span></div>
-		<div>${article.content}</div>
+		<div> <span class="article-time">${article.post_time}</span>  <span class="article-author">${article.author}</span></div>
+		<div class="article-content">${article.content}</div>
+
+		<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="${article.id}" data-title="${article.title}" data-url="/cms/post/article?id=${article.id}"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"duguying-test"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+	<!-- 多说公共JS代码 end -->
+
 	</div>
 </body>
 </html>

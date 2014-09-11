@@ -11,6 +11,11 @@ import java.util.Random;
  * 
  */
 public class Utils {
+	public static String loginTagA = "<a href='/cms/user/login'>登录</a>";
+	public static String loginTagB = "<a class='username'>";
+	public static String loginTagC = "</a>";
+	public static String loginTagD = "<a class='user-logout' href='/cms/user/logout'>登出</a>";
+	
 	/**
 	 * MD5加密
 	 * 
